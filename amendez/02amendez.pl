@@ -24,13 +24,19 @@ Los dominios encontrados:11
 =head1 Autor
 Angel Mendez - <https://github.com/angelmend>
 =cut
-open FLOG,">>",'log.txt'||die "NO SE PUDO CREAR EL LOG";# Apertura de Log
-my $num_args = $#ARGV + 1; 
+open my $FLOG,">>",'log.txt'||die "NO SE PUDO CREAR EL LOG";# Apertura de Log
+open(STDERR ,">>&=",$FLOG);
+my $num_args = $#ARGV ; 
 my $arg1 = $ARGV[0];
-if($num_args != 1){ 
+if($#ARGV != 0){ 
 	print ("Error de Argumentos: \n");
-	print ("perl mi_programa.pl archivo_entrada.txt\n");
+	die $FLOG,"perl mi_programa.pl archivo_entrada.txt\n";
+	exit;
+}else{
+	print ("Espere un momento: \n");
 }
+
+
  
 if (not -e $arg1 ) {
 	print ("Archivo no existe!!! \n");
@@ -52,7 +58,7 @@ my $archivo = "02amendez.txt";
 
 open(FI, "<", $arg1) or die "Error de lectura\n";#Apertura de arvhido de lectura, en caso de no poder marcara error.
 
-while(<FI>){
+while(<FjI>){
 	chomp;			
 			if(/https?:\/\/[a-zA-Z0-9-]+[a-zA-Z0-9](\.[a-zA-Z]{2,})+/){#Busqueda de URL 
 				$url++;
@@ -62,7 +68,7 @@ while(<FI>){
 						$sumaUrl{$&}=1;
 					}
 			}
-			elsif(/([_a-z0-9-])+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})/){ #Busqueda de e-mails
+			elsif(/([_a-z0-9-])+(\.[_a-z0-9-]+){2,}@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})/){ #Busqueda de e-mails
 				$mail++;
 				if(defined $sumamail{$&}){
 						$sumamail{$&} = $sumamail{$&} + 1;
@@ -134,4 +140,4 @@ $sumatoria=$url+$dominio+$mail+$direccion;
 print (FO "==========================================================================================================\n");
 print(FO "Total patrones coincidentes: $sumatoria\n");#Sumatoria total de coincidencias
 close(FO);#cierre de archivo
-close(FLOG);#cierre de Log
+close($FLOG);#cierre de Log

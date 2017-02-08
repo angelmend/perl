@@ -1,0 +1,20 @@
+----------Correos---------
+Total   |  Correos
+Los correos encontrados: 0
+----------Ip's----------
+Total   |  Ip's
+Las ip encontradas: 0
+----------Dominios----------
+Total   |  Dominio
+Los dominios encontrados: 0
+----------Url's----------
+Total   |  URL
+Las URL encontradas: 0
+==========================================================================================================
+Resumen Total:
+Los correos encontrados: 0
+Las ip encontradas: 0
+Los dominios encontrados: 0
+Las URL encontradas: 0
+==========================================================================================================
+Total patrones coincidentes: 0

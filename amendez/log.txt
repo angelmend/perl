@@ -1,0 +1,2 @@
+readline() on unopened filehandle FjI at 02amendez.pl line 61.
+GLOB(0x78ee78)perl mi_programa.pl archivo_entrada.txt
