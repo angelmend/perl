@@ -1,0 +1,29 @@
+<head>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<tmpl_loop name=entradas>
+   <div>
+    <fieldset>
+       <legend><b><tmpl_var name="User"></b></legend>
+                <form method=post action=#>
+				<input type="hidden" name="llaveprin" value="<tmpl_var name=key>" />
+				<br/><b>User</b>:
+				<input type="text" name="Usuario" value="<tmpl_var name=user>" />
+				<br/><b>Pass</b>:
+				<input type="text" name="Password" value="<tmpl_var name=pass>" />
+				<br/><b>Uid</b>:
+				<input type="text" name="UID" value="<tmpl_var name=uid>" />
+				<br/><b>Gid</b>:
+				<input type="text" name="GID" value="<tmpl_var name=gid>" />
+				<br/><b>Desc</b>:
+				<input type="text" name="Descripcion" value="<tmpl_var name=desc>" />
+				<br/><b>Home</b>:
+				<input type="text" name="Home" value="<tmpl_var name=home>" />
+				<br/><b>Shell</b>:
+				<input type="text" name="Shell" value="<tmpl_var name=shell>" />
+				<input type=hidden name ="selector" value ="controler"/>
+				</form>
+    </fieldset>
+   </div>
+</tmpl_loop>
+
